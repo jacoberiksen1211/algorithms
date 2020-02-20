@@ -5,15 +5,12 @@ public class ComboBreaker {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
         int counter = 0;
-       // int counter2 = 3;
         int ccount = 0;
         int lcount = 0;
         int rcount = 0;
         int scount = 0;
         input.nextLine();
         String[] list = input.nextLine().split(" ");
-
-        String out = "";
 
         // ENEMY: C, L, R, S
         // return: M, E, C, S
@@ -36,19 +33,19 @@ public class ComboBreaker {
 
             if(ccount == 1 && lcount == 1 && rcount == 1 && scount == 1){
                 //COMBOBREAKER
-                out += "F ";
+                System.out.println("F");
                 counter += 4;
 
             }
             else{//not combo breaker
                 if (list[counter].equals("C")){
-                    out += "M ";}
+                    System.out.println("M");}
                 else if (list[counter].equals("L")){
-                    out += "E ";}
+                    System.out.println("E");}
                 else if (list[counter].equals("R")){
-                    out += "C ";}
+                    System.out.println("C");}
                 else if (list[counter].equals("S")){
-                    out += "S ";}
+                    System.out.println("S");}
 
                 counter++;
 
@@ -63,21 +60,15 @@ public class ComboBreaker {
         // sidste bogstaver, som ikke kan være i combo:
         while(counter < list.length){
             if (list[counter].equals("C")){
-                out += "M ";}
+                System.out.println("M");}
             else if (list[counter].equals("L")){
-                out += "E ";}
+                System.out.println("E");}
             else if (list[counter].equals("R")){
-                out += "C ";}
+                System.out.println("C");}
             else if (list[counter].equals("S")){
-                out += "S ";}
+                System.out.println("S");}
 
             counter++;
         }
-
-
-        if(out.length() != 0) {
-            out = out.substring(0, out.length() - 1);//fjerner sidste mellemrum
-        }
-        System.out.println(out);
     }
 }
