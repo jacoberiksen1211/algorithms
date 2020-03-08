@@ -16,12 +16,16 @@ public class Caesar {
             }
             else if(list.get(i).equals("^")) {
                 list.remove(i); //fjerner "^"
-                i--; //går til tegnet før "^"
-                if (list.get(i).charAt(0) >= '0' && list.get(i).charAt(0) <= '9') { //if number
-                    push = Integer.parseInt(list.get(i)); //set push to number that will be deleted
+                if(i!=0) {
+                    i--; //går til tegnet før "^"
+                    if (list.get(i).charAt(0) >= '0' && list.get(i).charAt(0) <= '9') { //if number
+                        push += Integer.parseInt(list.get(i)); //set push to number that will be deleted
+                        push = push%26;
+                    }
+                    list.remove(i); //sletter
+                    i--; //arrayliste rykker mod venstre ved remove...
+
                 }
-                list.remove(i); //sletter
-                i--; //arrayliste rykker mod venstre ved remove...
             }
             else{
                 if (push != 0){
@@ -31,12 +35,13 @@ public class Caesar {
                     char result = (char) ascii;
                     list.set(i, String.valueOf(result));
                 }
+
                 // ingen ændringer foretages hvis push er 0 og det er bogstav
             }
         }
         for (int i = 0; i < list.size(); i++) {
-            System.out.print(list.get(i));
-            System.out.println((int)list.get(i).charAt(0) - 65);;
+            System.out.println(list.get(i));
+          //  System.out.println((int)list.get(i).charAt(0) - 65);;
         }
 
 
